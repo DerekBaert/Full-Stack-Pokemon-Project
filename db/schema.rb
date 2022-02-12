@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_12_223618) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_12_230342) do
   create_table "generations", force: :cascade do |t|
     t.string "name"
     t.string "region"
@@ -28,7 +28,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_12_223618) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "generation_id", null: false
+    t.integer "type_id", null: false
     t.index ["generation_id"], name: "index_moves_on_generation_id"
+    t.index ["type_id"], name: "index_moves_on_type_id"
   end
 
   create_table "pokemons", force: :cascade do |t|
@@ -51,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_12_223618) do
   end
 
   add_foreign_key "moves", "generations"
+  add_foreign_key "moves", "types"
   add_foreign_key "pokemons", "generations"
   add_foreign_key "types", "generations"
 end
