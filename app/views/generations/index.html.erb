@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Generations</h1>
+
+<div id="generations">
+  <% @generations.each do |generation| %>
+    <%= render generation %>
+    <p>
+      <%= link_to "Show this generation", generation %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New generation", new_generation_path %>
