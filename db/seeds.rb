@@ -9,7 +9,8 @@ require "json"
 # https://pokeapi.co/api/v2/pokemon/?limit=899
 
 # pokemons = JSON.parse('https://pokeapi.co/api/v2/pokemon/?limit=899') 
-
+PokemonType.delete_all
+PokemonMove.delete_all
 Move.delete_all
 Pokemon.delete_all
 Type.delete_all
@@ -20,7 +21,7 @@ def fetch(url)
 end
 
 # Fetching the three big tables which belong to Generation  
-pokeFetch = fetch('https://pokeapi.co/api/v2/pokemon/?limit=9')['results']
+pokeFetch = fetch('https://pokeapi.co/api/v2/pokemon/?limit=898')['results']
 typeFetch = fetch('https://pokeapi.co/api/v2/type/?limit=18')['results']
 moveFetch = fetch('https://pokeapi.co/api/v2/move/?limit=826')['results']
 
