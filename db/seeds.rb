@@ -10,19 +10,19 @@ require "json"
 
 # pokemons = JSON.parse('https://pokeapi.co/api/v2/pokemon/?limit=899') 
 
+Move.delete_all
 Pokemon.delete_all
-# Type.delete_all
-# Move.delete_all
-# Generation.delete_all
+Type.delete_all
+Generation.delete_all
 # Fetches JSON resource
 def fetch(url)
     JSON.parse(URI.open(url).read)
 end
 
-# Fetching the three big tables which belong to Generation
+# Fetching the three big tables which belong to Generation  
 pokeFetch = fetch('https://pokeapi.co/api/v2/pokemon/?limit=9')['results']
 typeFetch = fetch('https://pokeapi.co/api/v2/type/?limit=18')['results']
-moveFetch = fetch('https://pokeapi.co/api/v2/move/?limit=844')['results']
+moveFetch = fetch('https://pokeapi.co/api/v2/move/?limit=826')['results']
 
 typeFetch.each do |t|
     typeData = fetch(t['url'])
@@ -47,16 +47,17 @@ moveFetch.each do |m|
     )
     
     # puts "Name: #{moveData['name']}\nAccuracy: #{moveData['accuracy']}\nDamage Type: #{moveData['damage_class']['name']}\nEffect: #{moveData['effect_entries'][0]['effect'].strip}\nPower: #{moveData['power']}\nPP: #{moveData['pp']}\nGeneration ID: #{moveGen.id}"
-    if(moveData['effect_entries'][0]['effect'].nil?)
-        effect = "None"
-    else
-        effect = moveData['effect_entries'][0]['effect']
+    flavor = "None"
+    moveData['flavor_text_entries'].each do |entry|
+        if(entry['language']['name'] == "en")
+            flavor = entry['flavor_text']
+        end
     end
     move = moveType.moves.find_or_create_by(
         name: moveData['name'],
         accuracy: moveData['accuracy'],
         damage_type: moveData['damage_class']['name'],
-        effect: effect,
+        effect: flavor,
         power: moveData['power'],
         pp: moveData['pp'],
         generation_id: moveGen.id
@@ -85,7 +86,7 @@ pokeFetch.each do |poke|
         end
 
         pokeData['moves'].each do |m|
-            pokeMove = MovePokemon.find_or_create_by(
+            pokeMove = PokemonMove.find_or_create_by(
                 pokemon_id: pokemon.id, 
                 move_id: Move.find_by(name: m['move']['name']).id
             )            
