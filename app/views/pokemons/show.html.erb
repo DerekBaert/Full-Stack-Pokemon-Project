@@ -1,10 +1,15 @@
 <p style="color: green"><%= notice %></p>
+<img src=<%= @pokemon.sprite %> alt="image of <%= @pokemon.name.capitalize() %>" width="150" height="150">
+<p>
+  <h2>#<%= @pokemon.number %> <%= @pokemon.name.capitalize() %></h2>      
+</p>
 
-<%= render @pokemon %>
+<p>
+  <strong>Description:</strong>
+  <%= @pokemon.description %>
+</p>
 
 <div>
-  <%= link_to "Edit this pokemon", edit_pokemon_path(@pokemon) %> |
-  <%= link_to "Back to pokemons", pokemons_path %>
+  <%= link_to "Back", pokedex_path %>
 
-  <%= button_to "Destroy this pokemon", @pokemon, method: :delete %>
 </div>
