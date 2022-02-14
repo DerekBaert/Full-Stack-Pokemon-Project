@@ -6,4 +6,6 @@ class Pokemon < ApplicationRecord
     
     has_many :pokemon_types, dependent: :delete_all
     has_many :types, through: :pokemon_types
+
+    validates :name, :sprite, :number, presence: true
 end
