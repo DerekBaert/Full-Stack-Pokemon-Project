@@ -8,4 +8,12 @@ class Pokemon < ApplicationRecord
     has_many :types, through: :pokemon_types
 
     validates :name, :sprite, :number, presence: true
+
+    def types_list
+        self.types.map(&:name).map(&:capitalize).join(', ')
+    end
+
+    def moves_list
+        self.moves.map(&:name).map(&:capitalize).join(', ')
+    end
 end

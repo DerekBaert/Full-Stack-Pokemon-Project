@@ -3,12 +3,22 @@
 <p>
   <h2>#<%= @pokemon.number %> <%= @pokemon.name.capitalize() %></h2>      
 </p>
-
+<p>
+  <%if @pokemon.types.count > 1%>
+    <strong>Types:</strong>
+  <%else%>
+    <strong>Type:</strong>
+  <%end%>
+  <%= @pokemon.types_list %>
+</p>
+<p>
+  <strong>Moves learned by this Pokemon:</strong>
+  <%= @pokemon.moves_list %>
+</p>
 <p>
   <strong>Description:</strong>
   <%= @pokemon.description %>
 </p>
-
 <div>
   <%= link_to "Back", pokedex_path %>
 
