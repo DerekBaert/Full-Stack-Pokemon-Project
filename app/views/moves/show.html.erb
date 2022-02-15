@@ -1,20 +1,28 @@
 <p style="color: green"><%= notice %></p>
-
-<div>
-  <h1><%=@move.name.capitalize()%></h1>
-  <p>
-    <strong>Type:</strong> <%= @move.type.name.capitalize() %>
-  </p>  
-  <p>
+  
+</div>
+<div class="card m-3 has-text-centered">
+  <div class="card-content">
+    <div class="media-content">
+      <p class="title is-4">
+        <%=@move.name.capitalize()%>
+      </p> 
+      <p class="subtitle is 5">
+        <em><%= @move.type.name.capitalize() %></em>
+      </p>
+    </div>        
+  </div>
+  <div class="content">
+    <p>
   <%if @move.accuracy%>
     <strong>Accuracy:</strong> <%= @move.accuracy %> 
   <%end%>   
   </p>
   <p>
-    <strong>Move Class:</strong> <%= @move.damage_type.capitalize() %>    
+    <strong>Damage Type:</strong> <%= @move.damage_type.capitalize() %>    
   </p>
   <p>
-    <strong>Effect:</strong> <%= @move.effect %>
+    <%= @move.effect %>
   </p>
   <p>  
   <%if @move.power%>
@@ -26,7 +34,8 @@
   <p>
     <strong>PP:</strong> <%= @move.pp %>    
   </p>
-</div>
+  </div>
+</div>  
 
 <h2>Pokemon who can learn this move:</h2>
 <div>  

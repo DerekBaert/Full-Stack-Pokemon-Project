@@ -12,8 +12,8 @@
   </head>
   <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item">
-        <%= link_to image_tag(image_path("pokedex.png"), size: "25x25"), root_path%>
+      <a class="navbar-item" href=<%=root_path%>>
+        <%=image_tag(image_path("pokedex.png"), size: "25x25", alt:"Home Icon")%>
       </a>    
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
@@ -48,11 +48,10 @@
   </nav>
 
   <body>
-  <section class="section">
-    <div class="container">
-      <%= yield %>
-    </div>
-  </section>    
+    <section class="section">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>    
   </body>
-  <%= render partial: 'common/footer' %>
 </html>

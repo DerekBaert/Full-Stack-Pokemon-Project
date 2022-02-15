@@ -1,11 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Generations</h1>
+<p class="title is-2">Generations</p>
 
-<div id="generations">
+<div class="columns">
   <% @generations.each do |generation| %>
-  <p>
-    <%= link_to "Generation #{generation.name.split('-')[1].upcase()}", generation%>
-  </p>
+    <div class="card m-3 has-text-centered">
+      <p>
+        <%= link_to "Generation #{generation.name.split('-')[1].upcase()}", generation%>
+      </p>
+    </div>
   <% end %>
 </div>

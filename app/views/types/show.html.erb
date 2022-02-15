@@ -1,22 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= @type.name.capitalize()%></h1>
-<h2>Pokemon of this type:</h2>
-<div>  
-  <%@type.pokemons.each do |pokemon|%>
-      <%=link_to image_tag(pokemon.sprite), pokemon%>
-  <%end%>
+<p class="title is-2"><%= @type.name.capitalize()%></p>
+<div class="columns">
+  <div class="column">
+    <p class="title is-5 has-text-centered">Pokemon of this type:</p>
+    <ul>
+      <%@type.pokemons.each do |pokemon|%>
+        <%=link_to image_tag(pokemon.sprite), pokemon%>
+      <%end%>
+    </ul>
+  </div>
+  <div class="column">
+    <p class="title is-5 has-text-centered">Moves introduced in this generation:</p>
+     <div class="columns is-multiline is-centered has-text-centered">
+      <%@type.moves.each do |type|%>
+        <div class="column has-text-black"><%=link_to type.name.capitalize(), type%></div>
+      <%end%>
+    </div>
+  </div>
 </div>
-
-<h2>Moves of this type:</h2>
-<div>  
-<ul>
-  <%@type.moves.each do |move|%>
-      <li><%=link_to move.name.capitalize(), move%></li>
-  <%end%>
-</ul>
-</div>
-
 <div>
   <%= link_to "Back", types_path %>
 </div>

@@ -10,7 +10,7 @@
       </div>
       <div class="card-content">
         <p class="subtitle is-5">
-          #<%= pokemon.number %> <a href=<%=pokemon%>><%= pokemon.name.capitalize()%></a>    
+          #<%= pokemon.number %> <%=link_to pokemon.name.capitalize(), pokemon%>
         </p> 
       </div>
     </div>

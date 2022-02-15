@@ -1,31 +1,30 @@
 <p style="color: green"><%= notice %></p>
-<img src=<%= @pokemon.sprite %> alt="image of <%= @pokemon.name.capitalize() %>" width="150" height="150">
-<p>
-  <h2>#<%= @pokemon.number %> <%= @pokemon.name.capitalize() %></h2>      
-</p>
-<p>
-  <%if @pokemon.types.count > 1%>
-    <strong>Types:</strong>
-  <%else%>
-    <strong>Type:</strong>
-  <%end%>
-  <ul>
-    <%@pokemon.types.each do |type|%>
-      <li><%=link_to type.name.capitalize(), type%></li>
-    <%end%>
-  </ul>
-</p>
-<p>
-  <strong>Moves learned by this Pokemon:</strong>
-  <ul>
+
+<div class="card m-3 has-text-centered">
+  <div class="card-image has-text-centered">
+    <img src=<%= @pokemon.sprite %> alt="image of <%= @pokemon.name.capitalize() %>" width="150" height="150">  
+  </div>
+  <div class="card-content">
+    <div class="media-content">
+      <p class="title is-4">
+        #<%= @pokemon.number %> <%= @pokemon.name.capitalize() %>
+      </p> 
+      <%@pokemon.types.each do |type|%>
+          <%=link_to type.name.capitalize(), type%>
+      <%end%>
+    </div>        
+  </div>
+  <div class="content">
+    <%= @pokemon.description %>
+  </div>
+</div>  
+
+<p class="title is-5 has-text-centered">Moves learned by this Pokemon:</p>
+  <div class="columns is-multiline is-centered has-text-centered">
     <%@pokemon.moves.each do |move|%>
-      <li><%=link_to move.name.capitalize(), move%></li>
+      <div class="column has-text-black"><%=link_to move.name.capitalize(), move%></div>
     <%end%>
-  </ul>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @pokemon.description %>
+  </div>
 </p>
 <div>
   <%= link_to "Back", pokedex_path %>

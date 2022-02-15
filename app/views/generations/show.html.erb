@@ -1,35 +1,39 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Generation <%=@generation.name.split('-')[1].upcase()%></h1>
+<p class="title is-2">Generation <%=@generation.name.split('-')[1].upcase()%></p>
 <div class = "columns">
-  <div class = "column">
-    <%if @generation.types%>
-      <h2>Types introduced in this generation:</h2>  
+  <div class="row">
+    <div class="column">
+      <p class="title is-5 has-text-centered">Pokemon introduced in this generation:</p>
       <ul>
-        <%@generation.types.each do |type|%>
-            <li><%=link_to type.name.capitalize(), type%></li>
+        <%@generation.pokemons.each do |pokemon|%>
+            <%=link_to image_tag(pokemon.sprite), pokemon%>
         <%end%>
       </ul>
-    <%end%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <p class="title is-5 has-text-centered">Types introduced in this generation:</p>
+        <div class="columns is-multiline is-centered has-text-centered">
+          <%@generation.types.each do |type|%>
+            <div class="column has-text-black"><%=link_to type.name.capitalize(), type%></div>
+          <%end%>
+        </div>
+      </p>
+    </div>
+    <div class="column">
+      <p class="title is-5 has-text-centered">Moves introduced in this generation:</p>
+        <div class="columns is-multiline is-centered has-text-centered">
+          <%@generation.moves.each do |move|%>
+            <div class="column has-text-black"><%=link_to move.name.capitalize(), move%></div>
+          <%end%>
+        </div>
+      </p>
+    </div>
   </div>
 
-  <div class="column">
-    <h2>Pokemon introduced in this generation:</h2> 
-    <ul>
-      <%@generation.pokemons.each do |pokemon|%>
-          <%=link_to image_tag(pokemon.sprite), pokemon%>
-      <%end%>
-    </ul>
-  </div>
 
-  <div class="column">
-    <h2>Moves introduced in this generation:</h2>
-    <ul>
-      <%@generation.moves.each do |move|%>
-          <li><%=link_to move.name.capitalize(), move%></li>
-      <%end%>
-    </ul>
-  </div>
   
 </div>
 <div>

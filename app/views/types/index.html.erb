@@ -1,9 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Types</h1>
+<p class="title is-2">Types</p>
 
-<div id="types">
+<div class="columns">
   <% @types.each do |type| %>
-    <%= render type %>
+    <div class="card m-3 has-text-centered">
+      <p>
+        <%= link_to type.name.capitalize(), type %>
+      </p>
+    </div>
   <% end %>
 </div>

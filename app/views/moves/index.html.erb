@@ -1,12 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Moves</h1>
+<p class="title is-2">Moves</p>
 
-<div id="moves">
-  <% @moves.each do |move| %>
-    <p>
-      <h3><%= link_to move.name.capitalize(), move %></h3>
-      <strong>Type:</strong> <%= move.type.name.capitalize() %>
-    </p>
-  <% end %>
-</div>
+<div class="columns is-multiline is-centered">
+    <% @moves.each do |move| %>
+    <div class="card m-3">
+      <div class="card-content">
+        <p class="title is-5">
+          <%= link_to move.name.capitalize(), move %>
+        </p> 
+        <p class="subtitle is 5">
+          <em><%= move.type.name.capitalize() %></em>
+        </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
