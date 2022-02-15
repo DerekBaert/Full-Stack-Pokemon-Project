@@ -3,15 +3,56 @@
   <head>
     <title>PokemonProject</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+  <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <%= link_to image_tag(image_path("pokedex.png"), size: "25x25"), root_path%>
+      </a>    
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href=<%=generations_path%>>
+          Generations
+        </a>
+        <a class="navbar-item" href=<%=pokedex_path%>>
+          Pokedex
+        </a>
+        <a class="navbar-item" href=<%=types_path%>>
+          Types
+        </a>
+        <a class="navbar-item" href=<%=moves_path%>>
+          Moves
+        </a>
+        <a class="navbar-item" href=<%=types_path%>>
+          Types
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+
+        </div>
+      </div>
+    </div>
+  </nav>
 
   <body>
-    <%= yield %>
+  <section class="section">
+    <div class="container">
+      <%= yield %>
+    </div>
+  </section>    
   </body>
   <%= render partial: 'common/footer' %>
 </html>

@@ -1,33 +1,37 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Generation <%=@generation.name.split('-')[1].upcase()%></h1>
-
-<%if @generation.types%>
-  <h2>Types introduced in this generation:</h2>
-  <div>  
-  <ul>
-    <%@generation.types.each do |type|%>
-        <li><%=link_to type.name.capitalize(), type%></li>
+<div class = "columns">
+  <div class = "column">
+    <%if @generation.types%>
+      <h2>Types introduced in this generation:</h2>  
+      <ul>
+        <%@generation.types.each do |type|%>
+            <li><%=link_to type.name.capitalize(), type%></li>
+        <%end%>
+      </ul>
     <%end%>
-  </ul>
-<%end%>
+  </div>
 
-<h2>Pokemon introduced in this generation:</h2>
-<div>  
-<ul>
-  <%@generation.pokemons.each do |pokemon|%>
-       <%=link_to image_tag(pokemon.sprite), pokemon%>
-  <%end%>
-</ul>
+  <div class="column">
+    <h2>Pokemon introduced in this generation:</h2> 
+    <ul>
+      <%@generation.pokemons.each do |pokemon|%>
+          <%=link_to image_tag(pokemon.sprite), pokemon%>
+      <%end%>
+    </ul>
+  </div>
 
-<h2>Moves introduced in this generation:</h2>
-  <div>  
-  <ul>
-    <%@generation.moves.each do |move|%>
-        <li><%=link_to move.name.capitalize(), move%></li>
-    <%end%>
-  </ul>
-
+  <div class="column">
+    <h2>Moves introduced in this generation:</h2>
+    <ul>
+      <%@generation.moves.each do |move|%>
+          <li><%=link_to move.name.capitalize(), move%></li>
+      <%end%>
+    </ul>
+  </div>
+  
+</div>
 <div>
   <%= link_to "Back", generations_path %>
 </div>
