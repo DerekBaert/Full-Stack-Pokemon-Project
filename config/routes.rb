@@ -10,12 +10,4 @@ Rails.application.routes.draw do
 
   get 'types' => 'types#index', as: 'types'
   get 'type/:id' => 'types#show', as: 'type', id: /\d+/
-
-  root to: "home#index"
-
-  resources :pokemon, only: [:index, :show] do
-    collection do
-      get "search"
-    end
-  end
 end
