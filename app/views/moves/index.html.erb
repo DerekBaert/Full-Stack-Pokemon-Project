@@ -4,11 +4,9 @@
 
 <div id="moves">
   <% @moves.each do |move| %>
-    <%= render move %>
     <p>
-      <%= link_to "Show this move", move %>
+      <h3><%= link_to move.name.capitalize(), move %></h3>
+      <strong>Type:</strong> <%= move.type.name.capitalize() %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New move", new_move_path %>

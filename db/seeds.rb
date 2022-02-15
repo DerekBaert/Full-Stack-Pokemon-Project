@@ -52,6 +52,7 @@ moveFetch.each do |m|
     moveData['flavor_text_entries'].each do |entry|
         if(entry['language']['name'] == "en")
             flavor = entry['flavor_text']
+            break
         end
     end
     move = moveType.moves.find_or_create_by(
@@ -71,12 +72,21 @@ pokeFetch.each do |poke|
     genFetch = fetch(species['generation']['url'])
     generation = Generation.find_or_create_by(name: genFetch['name'], region: genFetch['main_region']['name'])
 
+    entries = species['flavor_text_entries']
+    entry = ""
+    entries.each do |e|
+        if(e['language']['name'] == "en")
+            entry = e['flavor_text']
+            break
+        end
+    end   
+
     if generation && generation.valid?
         pokemon = generation.pokemons.create(
             name: pokeData['name'],
             sprite: pokeData['sprites']['front_default'],
             number: pokeData['id'],
-            description: species['flavor_text_entries'][0]['flavor_text']
+            description: entry
         )
         
         pokeData['types'].each do |t|

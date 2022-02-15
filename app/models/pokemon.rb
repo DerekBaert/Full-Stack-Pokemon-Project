@@ -10,10 +10,10 @@ class Pokemon < ApplicationRecord
     validates :name, :sprite, :number, presence: true
 
     def types_list
-        self.types.map(&:name).map(&:capitalize).join(', ')
+        self.types.map(&:name).map(&:capitalize)
     end
 
     def moves_list
-        self.moves.map(&:name).map(&:capitalize).join(', ')
+        self.moves.map(&:name).map(&:capitalize)
     end
 end

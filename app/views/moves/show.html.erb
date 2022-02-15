@@ -1,10 +1,40 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @move %>
+<div>
+  <h2><%= link_to @move.name.capitalize(), @move %></h2>
+  <p>
+    <strong>Type:</strong> <%= @move.type.name.capitalize() %>
+  </p>  
+  <p>
+  <%if @move.accuracy%>
+    <strong>Accuracy:</strong> <%= @move.accuracy %> 
+  <%end%>   
+  </p>
+  <p>
+    <strong>Move Class:</strong> <%= @move.damage_type.capitalize() %>    
+  </p>
+  <p>
+    <strong>Effect:</strong> <%= @move.effect %>
+  </p>
+  <p>  
+  <%if @move.power%>
+    <strong>Power:</strong> <%= @move.power %>
+  <%else%>
+    <strong>Power:</strong> N/A
+  <%end%>
+  </p>
+  <p>
+    <strong>PP:</strong> <%= @move.pp %>    
+  </p>
+</div>
+
+<h2>Pokemon who can learn this move:</h2>
+<div>  
+  <%@move.pokemons.each do |pokemon|%>
+      <%=link_to image_tag(pokemon.sprite), pokemon%>
+  <%end%>
+</div>
 
 <div>
-  <%= link_to "Edit this move", edit_move_path(@move) %> |
-  <%= link_to "Back to moves", moves_path %>
-
-  <%= button_to "Destroy this move", @move, method: :delete %>
+  <%= link_to "Back", moves_path %>
 </div>

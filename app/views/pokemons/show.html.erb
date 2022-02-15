@@ -9,11 +9,19 @@
   <%else%>
     <strong>Type:</strong>
   <%end%>
-  <%= @pokemon.types_list %>
+  <ul>
+    <%@pokemon.types.each do |type|%>
+      <li><%=link_to type.name.capitalize(), type%></li>
+    <%end%>
+  </ul>
 </p>
 <p>
   <strong>Moves learned by this Pokemon:</strong>
-  <%= @pokemon.moves_list %>
+  <ul>
+    <%@pokemon.moves.each do |move|%>
+      <li><%=link_to move.name.capitalize(), move%></li>
+    <%end%>
+  </ul>
 </p>
 <p>
   <strong>Description:</strong>
@@ -21,5 +29,4 @@
 </p>
 <div>
   <%= link_to "Back", pokedex_path %>
-
 </div>

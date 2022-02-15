@@ -5,10 +5,5 @@
 <div id="types">
   <% @types.each do |type| %>
     <%= render type %>
-    <p>
-      <%= link_to "Show this type", type %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New type", new_type_path %>

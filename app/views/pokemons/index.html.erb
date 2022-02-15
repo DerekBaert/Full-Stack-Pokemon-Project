@@ -6,11 +6,7 @@
   <% @pokemons.each do |pokemon| %>
     <img src=<%= pokemon.sprite %> alt="image of <%= pokemon.name.capitalize() %>" width="100" height="100">  
     <p>
-      <h2>#<%= pokemon.number %> <%= link_to pokemon.name.capitalize(), pokemon %></h2>
-      
+      <h3>#<%= pokemon.number %> <%= link_to pokemon.name.capitalize(), pokemon %></h3>      
     </p> 
-    <p>
-      
-    </p>
   <% end %>
 </div>
