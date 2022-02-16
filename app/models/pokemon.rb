@@ -16,4 +16,12 @@ class Pokemon < ApplicationRecord
     def moves_list
         self.moves.map(&:name).map(&:capitalize)
     end
+
+    def self.search(search)
+        if search 
+            where(["name LIKE ?","%#{search}%"])
+        else
+            all
+        end
+    end 
 end

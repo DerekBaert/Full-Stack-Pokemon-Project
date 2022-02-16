@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>PokemonProject</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,9 +8,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    
   </head>
-  <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
+  <body>
+  <nav class="navbar is-danger" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href=<%=root_path%>>
         <%=image_tag(image_path("pokedex.png"), size: "25x25", alt:"Home Icon")%>
@@ -23,6 +24,9 @@
     </div>
     <div class="navbar-menu">
       <div class="navbar-start">
+        <a class="navbar-item" href=<%=about_index_path%>>
+          About
+        </a>
         <a class="navbar-item" href=<%=generations_path%>>
           Generations
         </a>
@@ -38,13 +42,16 @@
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
-
+          <%= form_with(url: '/pokedex', method: 'get', local: true) do %>
+            <%= text_field_tag(:search) %>
+            <%= submit_tag("Search") %>
+          <% end %>
         </div>
       </div>
     </div>
   </nav>
 
-  <body>
+
     <section class="section">
       <div class="container">
         <%= yield %>

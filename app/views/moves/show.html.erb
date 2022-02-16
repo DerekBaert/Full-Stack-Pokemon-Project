@@ -21,9 +21,6 @@
   <p>
     <strong>Damage Type:</strong> <%= @move.damage_type.capitalize() %>    
   </p>
-  <p>
-    <%= @move.effect %>
-  </p>
   <p>  
   <%if @move.power%>
     <strong>Power:</strong> <%= @move.power %>
@@ -34,10 +31,13 @@
   <p>
     <strong>PP:</strong> <%= @move.pp %>    
   </p>
+    <p>
+    <%= @move.effect %>
+  </p>
   </div>
 </div>  
 
-<h2>Pokemon who can learn this move:</h2>
+<p class="title is-5 has-text-centered">Pokemon who can learn this move:</p>
 <div>  
   <%@move.pokemons.each do |pokemon|%>
       <%=link_to image_tag(pokemon.sprite), pokemon%>

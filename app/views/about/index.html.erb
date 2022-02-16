@@ -1,0 +1,79 @@
+<h1 class="title is-2">About</h1>
+
+<%=image_tag(image_path("erd.png"), alt:"ERD for Site Database")%>
+
+<div class="columns is-multiline">
+    <div class="column">
+        <div class="card">
+        <div class="card-content">
+            <h2 class="subtitle is-4">
+                Pokemons
+            </h2> 
+            <p>
+            Represents a Pokemon. Contains it’s name, sprite URL, Pokedex number, and reference to the generation it belongs to.
+            </p>
+        </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card">
+        <div class="card-content">
+            <h2 class="subtitle is-4">
+            Moves
+            </h2> 
+            <p>
+            Represents a Move. Contains it’s name, Accuracy, Damage Class, Effect, Power PP, and references to the Generation it belongs to and the Type it belongs to.
+            </p>
+        </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card is-1">
+        <div class="card-content">
+            <h2 class="subtitle is-4">
+            Types
+            </h2> 
+            <p>
+            Represents a Type. Contains it’s name and a reference to the Generation it belongs to.
+            </p>
+        </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card">
+        <div class="card-content">
+            <h2 class="subtitle is-4">
+            Generations
+            </h2> 
+            <p>
+            Represents a Generation. Contains it’s name and Region.
+            </p>
+        </div>
+        </div>
+    </div>
+    
+    <div class="column">
+        <div class="card">
+        <div class="card-content">
+            <h2 class="subtitle is-5">
+            Pokemon_Types
+            </h2> 
+            <p>
+            Joins the Pokemons and Types tables.
+            </p>
+        </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card">
+        <div class="card-content">
+            <h2 class="subtitle is-5">
+            Pokemon_Moves
+            </h2> 
+            <p>
+            Joins the Pokemons and Moves tables.
+            </p>
+        </div>
+        </div>
+    </div>
+</div>
