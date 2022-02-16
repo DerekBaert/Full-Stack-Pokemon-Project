@@ -5,11 +5,9 @@
   <div class="row">
     <div class="column">
       <p class="title is-5 has-text-centered">Pokemon introduced in this generation:</p>
-      <ul>
         <%@generation.pokemons.each do |pokemon|%>
-            <%=link_to image_tag(pokemon.sprite), pokemon%>
+            <%=link_to image_tag(pokemon.sprite, alt: "#{pokemon.name}"), pokemon%>
         <%end%>
-      </ul>
     </div>
   </div>
   <div class="row">
@@ -20,7 +18,6 @@
             <div class="column has-text-black"><%=link_to type.name.capitalize(), type%></div>
           <%end%>
         </div>
-      </p>
     </div>
     <div class="column">
       <p class="title is-5 has-text-centered">Moves introduced in this generation:</p>
@@ -29,7 +26,6 @@
             <div class="column has-text-black"><%=link_to move.name.capitalize(), move%></div>
           <%end%>
         </div>
-      </p>
     </div>
   </div>
 

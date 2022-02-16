@@ -4,11 +4,9 @@
 <div class="columns">
   <div class="column">
     <p class="title is-5 has-text-centered">Pokemon of this type:</p>
-    <ul>
       <%@type.pokemons.each do |pokemon|%>
-        <%=link_to image_tag(pokemon.sprite), pokemon%>
+        <%=link_to image_tag(pokemon.sprite, alt: "#{pokemon.name}"), pokemon%>
       <%end%>
-    </ul>
   </div>
   <div class="column">
     <p class="title is-5 has-text-centered">Moves introduced in this generation:</p>
