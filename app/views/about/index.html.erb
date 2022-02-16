@@ -10,7 +10,11 @@
                 Pokemons
             </h2> 
             <p>
-            Represents a Pokemon. Contains it’s name, sprite URL, Pokedex number, and reference to the generation it belongs to.
+            Represents a Pokemon. Contains it’s name, sprite URL, Pokedex number, and reference to the generation it belongs to. 
+            </p>
+            <p>
+                One to many with Generations, in which it is the child (Generation has many Pokemons).
+                Many to Many with Types and Moves.
             </p>
         </div>
         </div>
@@ -24,6 +28,10 @@
             <p>
             Represents a Move. Contains it’s name, Accuracy, Damage Class, Effect, Power PP, and references to the Generation it belongs to and the Type it belongs to.
             </p>
+            <p>
+                One to many with Generations, in which it is the child (Generation has many Moves).
+                Many to Many with Pokemons.
+            </p>
         </div>
         </div>
     </div>
@@ -35,6 +43,10 @@
             </h2> 
             <p>
             Represents a Type. Contains it’s name and a reference to the Generation it belongs to.
+            </p>
+            <p>
+                One to many with Generations, in which it is the child (Generation has many Types).
+                Many to Many with Pokemons.
             </p>
         </div>
         </div>
@@ -48,6 +60,9 @@
             <p>
             Represents a Generation. Contains it’s name and Region.
             </p>
+            <p>
+                One to many with Pokemons, Types, and Moves in which it is the parent of each (Generation has many Pokemons, Types and Moves).
+            </p>
         </div>
         </div>
     </div>
@@ -59,7 +74,10 @@
             Pokemon_Types
             </h2> 
             <p>
-            Joins the Pokemons and Types tables.
+            Joins the Pokemons and Types tables. 
+            </p>
+            <p>
+                Belongs to many Pokemons and Types.
             </p>
         </div>
         </div>
@@ -72,6 +90,9 @@
             </h2> 
             <p>
             Joins the Pokemons and Moves tables.
+            </p>
+            <p>
+                Belongs to many Pokemons and Moves.
             </p>
         </div>
         </div>
