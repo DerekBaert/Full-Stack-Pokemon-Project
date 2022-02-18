@@ -3,7 +3,7 @@ class PokemonsController < ApplicationController
 
   # GET /pokemons or /pokemons.json
   def index
-    @pokemons = Pokemon.search(params[:search])
+    @pokemons = Pokemon.search(params[:search]).page(params[:page])
   end
 
   # GET /pokemons/1 or /pokemons/1.json
